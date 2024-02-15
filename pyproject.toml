@@ -1,0 +1,80 @@
+[project]
+name = "FoodLens"
+version = "0.0.1"
+description = "FoodLens"
+authors = [
+    {name = "gofiny", email = "gofiny@inbox.ru"},
+]
+dependencies = [
+    "sqlalchemy[async]>=2.0.25",
+    "granian>=1.0.2",
+    "asyncpg>=0.29.0",
+    "alembic>=1.13.1",
+    "pydantic-settings>=2.1.0",
+    "aiogram>=3.3.0",
+]
+
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+warn_redundant_casts = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+ignore_missing_imports = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
+[tool.black]
+line-length = 79
+
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["E", "F", "W", "C90", "I", "N", "UP", "YTT",
+    "ASYNC", "S", "B", "C4", "DTZ", "T10", "FA", "ISC",
+    "ICN", "PIE", "T20", "PT", "Q", "RET", "SLF", "SIM",
+    "ERA", "PLE", "TRY"]
+ignore = []
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+line-length = 79
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.pdm.dev-dependencies]
+# pdm add -aG group_name package_name
+dev = [
+    "setuptools>=68.2.2",
+]
+test = [
+    "pytest>=7.4.2",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+]
+lint = [
+    "ruff>=0.0.291",
+    "mypy>=1.5.1",
+    "black>=23.9.1",
+]
