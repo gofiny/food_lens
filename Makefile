@@ -1,4 +1,4 @@
-SERVICE := auth
+SERVICE := food_lens
 
 setup:
 	@pdm install
