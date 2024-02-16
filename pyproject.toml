@@ -14,6 +14,7 @@ dependencies = [
     "orjson>=3.9.14",
     "loguru>=0.7.2",
     "fastapi>=0.109.2",
+    "granian>=1.1.0",
 ]
 
 requires-python = ">=3.12"
@@ -53,17 +54,17 @@ line-length = 120
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
-select = ["E", "F", "W", "C90", "I", "N", "UP", "YTT",
+lint.select = ["E", "F", "W", "C90", "I", "N", "UP", "YTT",
     "ASYNC", "S", "B", "C4", "DTZ", "T10", "FA", "ISC",
     "ICN", "PIE", "T20", "PT", "Q", "RET", "SLF", "SIM",
     "ERA", "PLE", "TRY"]
-ignore = []
+lint.ignore = ["S105", "TRY003"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
-fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
-unfixable = []
+lint.fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+lint.unfixable = []
 line-length = 120
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.pdm.dev-dependencies]
 # pdm add -aG group_name package_name

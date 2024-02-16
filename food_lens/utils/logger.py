@@ -1,12 +1,12 @@
 import logging
 import sys
 from collections.abc import Callable
+from enum import Enum
 from typing import Any
 
 import loguru
 import orjson
 from pydantic import BaseModel
-from enum import Enum
 
 
 class LogLevel(str, Enum):
@@ -104,9 +104,6 @@ def get_object_logger(obj: object, logger_: loguru.Logger | None = None) -> logu
 
 
 class LoggerMixin:
-    def __init__(self, logger_: loguru.Logger | None = None):
-        self.__logger = logger_
-
     @property
     def logger(self) -> loguru.Logger:
         if not hasattr(self, "__logger"):

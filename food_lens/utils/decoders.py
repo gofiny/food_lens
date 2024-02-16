@@ -1,5 +1,6 @@
+from typing import Any, Protocol, cast
+
 import orjson
-from typing import Any, Protocol
 
 
 class JsonDecoderProtocol(Protocol):
@@ -8,4 +9,4 @@ class JsonDecoderProtocol(Protocol):
 
 
 def decode_json(body: bytes) -> dict[str, Any]:
-    return orjson.loads(body)
+    return cast(dict[str, Any], orjson.loads(body))
