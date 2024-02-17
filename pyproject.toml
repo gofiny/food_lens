@@ -29,6 +29,9 @@ build-backend = "pdm.pep517.api"
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 
+[tool.coverage.run]
+omit = ["tests/*"]
+
 [tool.mypy]
 plugins = ["pydantic.mypy"]
 warn_redundant_casts = true
@@ -67,8 +70,12 @@ lint.unfixable = []
 line-length = 120
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
+[tool.ruff.lint.per-file-ignores]
+"migrations/*" = ["S608"]
+"tests/*" = ["S", "B008", "C4", "ISC", "SLF", "PT004", "DTZ005"]
+
 [tool.pdm.dev-dependencies]
-# pdm add -aG group_name package_name
+# pdm add -G group_name package_name
 dev = [
     "setuptools>=68.2.2",
 ]
@@ -76,9 +83,15 @@ test = [
     "pytest>=7.4.2",
     "pytest-asyncio>=0.21.1",
     "pytest-cov>=4.1.0",
+    "pytest-sugar>=1.0.0",
 ]
-lint = [
-    "ruff>=0.0.291",
-    "mypy>=1.5.1",
+format = [
     "black>=23.9.1",
+]
+mypy = [
+    "mypy>=1.5.1",
+    "mypy2junit>=1.9.0",
+]
+ruff = [
+    "ruff>=0.0.291",
 ]
