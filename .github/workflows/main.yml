@@ -81,5 +81,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker pull food_lens:${{ github.sha }}
-            # docker run --rm -d --name myapp myapp:${{ github.sha }}
+            docker run -rm -d --name food_lens \
+              -e API_TOKEN=${{ secrets.API_TOKEN }} \
+              -e SECRET_TOKEN=${{ secrets.SECRET_TOKEN }} \
+              -e WEBHOOK_URL=${{ secrets.WEBHOOK_URL }} \
+              -e WEBHOOK_ENDPOINT=${{ secrets.WEBHOOK_ENDPOINT }} \
+              -e UPDATING_METHOD=${{ secrets.UPDATING_METHOD }} \
+              food_lens:${{ github.sha }}

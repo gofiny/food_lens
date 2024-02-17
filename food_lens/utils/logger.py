@@ -20,7 +20,7 @@ class LogLevel(str, Enum):
 
 
 class LoggerSettings(BaseModel):
-    json_enabled: bool = False
+    json_enabled: bool = True
     level: LogLevel = LogLevel.INFO
     extra_context: bool = False
     colorize: bool = False

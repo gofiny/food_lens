@@ -25,7 +25,7 @@ class RunnerSettings(BaseModel):
     webhook_url: HttpUrl | None = None
     webhook_endpoint: str | None = None
     handle_in_background: bool = False
-    updating_method: TelegramUpdatedMethod
+    updating_method: TelegramUpdatedMethod = TelegramUpdatedMethod.WEBHOOK
 
     @model_validator(mode="after")
     def check_webhook_params(self) -> Self:
