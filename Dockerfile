@@ -6,7 +6,7 @@ RUN pip --no-cache-dir install pdm
 
 COPY pyproject.toml pdm.lock README.md /build/
 
-RUN pdm export --without-hashes -f requirements.txt -o requirements.txt  && \
+RUN pdm export --without-hashes -f requirements -o requirements.txt  && \
     env | sort > .docker.env
 
 
@@ -23,7 +23,8 @@ ENV PYTHONFAULTHANDLER=1 \
 
 RUN pip --no-cache-dir install -r requirements.txt
 
-COPY auth /app/auth
+COPY food_lens /app/food_lens
+COPY .env /app/.env
 COPY --from=requirements-builder /build/.docker.env /app/.docker.env
 
-CMD ["python", "-m", "food_lens.app"]
+CMD ["python", "-m", "food_lens"]
