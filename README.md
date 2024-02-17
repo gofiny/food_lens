@@ -1,0 +1,1 @@
+[![CI Pipeline](https://github.com/gofiny/food_lens/actions/workflows/ci.yml/badge.svg)](https://github.com/gofiny/food_lens/actions/workflows/ci.yml)
