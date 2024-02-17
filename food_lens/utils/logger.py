@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 import sys
 from collections.abc import Callable
@@ -22,6 +24,25 @@ class LoggerSettings(BaseModel):
     level: LogLevel = LogLevel.INFO
     extra_context: bool = False
     colorize: bool = False
+
+
+class LoguruHandler(logging.Handler):
+    def __init__(self, stream: str = ""):
+        del stream
+        super().__init__()
+
+    def emit(self, record: logging.LogRecord) -> None:
+        try:
+            level: str | int = loguru.logger.level(record.levelname).name
+        except ValueError:
+            level = record.levelno
+
+        frame, depth = logging.currentframe(), 2
+        while frame.f_code.co_filename == logging.__file__ or frame.f_code.co_name == "sentry_patched_callhandlers":
+            frame = frame.f_back  # type: ignore
+            depth += 1
+
+        loguru.logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
 
 
 def _json_sink_wrapper() -> Callable[[loguru.Message], None]:
@@ -70,7 +91,7 @@ def _json_sink_wrapper() -> Callable[[loguru.Message], None]:
 
 
 def init_logging(settings: LoggerSettings) -> None:
-    logging.basicConfig(handlers=[logging.Handler()], level=0)
+    logging.basicConfig(handlers=[LoguruHandler()], level=0)
     loguru_handlers = []
 
     if settings.json_enabled:
@@ -93,7 +114,13 @@ def init_logging(settings: LoggerSettings) -> None:
             format_ += " | <level>{extra!s}</level>"
 
         loguru_handlers += [
-            {"sink": sys.stdout, "level": settings.level.value, "backtrace": False, "format": format_},
+            {
+                "sink": sys.stdout,
+                "colorize": settings.colorize,
+                "level": settings.level.value,
+                "backtrace": False,
+                "format": format_,
+            },
         ]
 
     loguru.logger.configure(handlers=loguru_handlers)
@@ -101,6 +128,10 @@ def init_logging(settings: LoggerSettings) -> None:
 
 def get_object_logger(obj: object, logger_: loguru.Logger | None = None) -> loguru.Logger:
     return (logger_ or loguru.logger).bind(class_name=type(obj).__name__)
+
+
+def start_logs(logger: loguru.Logger) -> None:
+    logger.info("Start logging")
 
 
 class LoggerMixin:

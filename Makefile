@@ -21,4 +21,4 @@ stop_docker:
 	docker-compose  down
 
 start:
-	@pdm run python -m granian --interface asgi $(SERVICE).app:app
+	@pdm run python -m $(SERVICE)

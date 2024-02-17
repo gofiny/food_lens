@@ -5,7 +5,7 @@
 groups = ["default", "dev", "lint", "test"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:252df67a67ffbd04df3b2cf3e8621e1805340b8c67c40c57dc7ca00eeaa1c9f9"
+content_hash = "sha256:ee9a21a93be76c9d4204eee25036805a1bda20b8837412a8448d32835663c150"
 
 [[package]]
 name = "aiofiles"
@@ -284,48 +284,6 @@ files = [
 ]
 
 [[package]]
-name = "granian"
-version = "1.1.0"
-requires_python = ">=3.8"
-summary = "A Rust HTTP server for Python applications"
-groups = ["default"]
-dependencies = [
-    "typer>=0.4.2",
-    "uvloop~=0.18.0; sys_platform != \"win32\" and platform_python_implementation == \"CPython\"",
-]
-files = [
-    {file = "granian-1.1.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:add4914ba191e011b473c223606d3a97cb6cd541ef0293246f92ea0120b5f958"},
-    {file = "granian-1.1.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:a774504e4edba71993a07bccec8f19f724379f774df579893ba844c637cd74f8"},
-    {file = "granian-1.1.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:970366d1a12e720d12344a7f17dce7293c82e192b648bd2ac5faefe3b5ddc8d8"},
-    {file = "granian-1.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5ea88063085bf6cee8ea6c6fe572c8d886d0f014bf42ae74177c32d523e721d4"},
-    {file = "granian-1.1.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:c18f3674792ef5018493abfcef4bc61fa089dcabb2c15aec6a73f4e41ea51be5"},
-    {file = "granian-1.1.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:65906afa7c77ba96d467459d74b01f1308ead6bfe599eec962f7dcc2ddcc1e21"},
-    {file = "granian-1.1.0-cp312-none-win_amd64.whl", hash = "sha256:7fedb0ca2803aace5eba2c6e9c74b32e2e15ea8a4af56cd6a58fcf4c13135b68"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:1210114981e8efdbd05e0afd7ac18a26528af95c1844bfc8b7c7d9f61503a799"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:e571a953474558dc878871476170eaed55d59c273925ec9260286faa11384884"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:51207108f4281b838bb8e8360fe5f5d259a3e8b842a7a784c1050f8dfff95881"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a3a2d49a24f69a390a3cd89d3659e60a07a999408bd3316f49832fe4692432f2"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-musllinux_1_1_aarch64.whl", hash = "sha256:605c02e4dbcee2612bb0be983d586ecbeadce882c3878d23dfbe9b92af934449"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-musllinux_1_1_x86_64.whl", hash = "sha256:0b4d702d3ccbe7149640990966f69b7dbb94b50fbe335b5e68ccd674cc7dbc3a"},
-    {file = "granian-1.1.0-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:860afd06bc2ef5d0549d7037dc5763922c83766e23089d14276f54d3ef3791cb"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-macosx_10_12_x86_64.whl", hash = "sha256:e01fc98c74a36e7027822fd183e2cc105f0833bb26997aa7a1164def44a24a4f"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-macosx_11_0_arm64.whl", hash = "sha256:6312a2b30b9dd024210b526c55b7eb7f1978c602a83f37503207ab708298f80a"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e25ee4f54b706cb18654c884c7d4b86c624076c16aada1164bf70b13573d4f04"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1e946cfaca0a20ef261d9783193b28f496b64aaaeb32cde6b79b894c04078931"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-musllinux_1_1_aarch64.whl", hash = "sha256:944b3cdbbd4290cbe788acb455fc72eaa1eb407b79d99b4a029e2a9493b805f9"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-musllinux_1_1_x86_64.whl", hash = "sha256:615bc3dbea358af08cd4cdb154f0fb52ddef74e4f29148f99708be11b5a68273"},
-    {file = "granian-1.1.0-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:43c4e687f881eef0cea6830a16feb775fffd095613e877259383b738272cac6d"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-macosx_10_12_x86_64.whl", hash = "sha256:53bd4cbf04d3b9e1de6cb1af3d8e879624780ad80b4ae790f0fa01bb5b3bc9a3"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-macosx_11_0_arm64.whl", hash = "sha256:b4e53619d0b3830d69ce3bd62e00eaeac6838d54402de6dfb4e2c0996c2b67e0"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:14c9e6ae6771e77ac5442739770f31740ffe638418b8e12e355ae61b02594681"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5b259dbf9719218a2e7b651b1aafa87bca4aa1e87d1e37f9eb936f540ac6be66"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-musllinux_1_1_aarch64.whl", hash = "sha256:526bf2c03fe5280a0cd313d82db8c7f6116499e84ea0f50bbf5d07357962b4e0"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-musllinux_1_1_x86_64.whl", hash = "sha256:0a0ee77479657c39d344744ac71f8e145287433fcf82884b7a253c8fa2cc4f17"},
-    {file = "granian-1.1.0-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:b2eec63ce6dfad273f7cc2c41825da490d79d4462500560fb5afd7fed0ab063f"},
-    {file = "granian-1.1.0.tar.gz", hash = "sha256:ba7fbc76e9845dee40c7f8b28925db5b3324ff9bc17b76111b699a1642e21ce7"},
-]
-
-[[package]]
 name = "greenlet"
 version = "3.0.3"
 requires_python = ">=3.7"
@@ -343,6 +301,17 @@ files = [
     {file = "greenlet-3.0.3-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:2516a9957eed41dd8f1ec0c604f1cdc86758b587d964668b5b196a9db5bfcde6"},
     {file = "greenlet-3.0.3-cp312-cp312-win_amd64.whl", hash = "sha256:bba5387a6975598857d86de9eac14210a49d554a77eb8261cc68b7d082f78ce2"},
     {file = "greenlet-3.0.3.tar.gz", hash = "sha256:43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"},
+]
+
+[[package]]
+name = "h11"
+version = "0.14.0"
+requires_python = ">=3.7"
+summary = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+groups = ["default"]
+files = [
+    {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
+    {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
 ]
 
 [[package]]
@@ -872,21 +841,6 @@ files = [
 ]
 
 [[package]]
-name = "typer"
-version = "0.9.0"
-requires_python = ">=3.6"
-summary = "Typer, build great CLIs. Easy to code. Based on Python type hints."
-groups = ["default"]
-dependencies = [
-    "click<9.0.0,>=7.1.1",
-    "typing-extensions>=3.7.4.3",
-]
-files = [
-    {file = "typer-0.9.0-py3-none-any.whl", hash = "sha256:5d96d986a21493606a358cae4461bd8cdf83cbf33a5aa950ae629ca3b51467ee"},
-    {file = "typer-0.9.0.tar.gz", hash = "sha256:50922fd79aea2f4751a8e0408ff10d2662bd0c8bbfa84755a699f3bada2978b2"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.9.0"
 requires_python = ">=3.8"
@@ -898,20 +852,49 @@ files = [
 ]
 
 [[package]]
+name = "uvicorn"
+version = "0.27.1"
+requires_python = ">=3.8"
+summary = "The lightning-fast ASGI server."
+groups = ["default"]
+dependencies = [
+    "click>=7.0",
+    "h11>=0.8",
+]
+files = [
+    {file = "uvicorn-0.27.1-py3-none-any.whl", hash = "sha256:5c89da2f3895767472a35556e539fd59f7edbe9b1e9c0e1c99eebeadc61838e4"},
+    {file = "uvicorn-0.27.1.tar.gz", hash = "sha256:3d9a267296243532db80c83a959a3400502165ade2c1338dea4e67915fd4745a"},
+]
+
+[[package]]
+name = "uvicorn"
+version = "0.27.1"
+extras = ["uvloop"]
+requires_python = ">=3.8"
+summary = "The lightning-fast ASGI server."
+groups = ["default"]
+dependencies = [
+    "uvicorn==0.27.1",
+]
+files = [
+    {file = "uvicorn-0.27.1-py3-none-any.whl", hash = "sha256:5c89da2f3895767472a35556e539fd59f7edbe9b1e9c0e1c99eebeadc61838e4"},
+    {file = "uvicorn-0.27.1.tar.gz", hash = "sha256:3d9a267296243532db80c83a959a3400502165ade2c1338dea4e67915fd4745a"},
+]
+
+[[package]]
 name = "uvloop"
-version = "0.18.0"
-requires_python = ">=3.7.0"
+version = "0.19.0"
+requires_python = ">=3.8.0"
 summary = "Fast implementation of asyncio event loop on top of libuv"
 groups = ["default"]
-marker = "sys_platform != \"win32\" and platform_python_implementation == \"CPython\""
 files = [
-    {file = "uvloop-0.18.0-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:61151cc207cf5fc88863e50de3d04f64ee0fdbb979d0b97caf21cae29130ed78"},
-    {file = "uvloop-0.18.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:c65585ae03571b73907b8089473419d8c0aff1e3826b3bce153776de56cbc687"},
-    {file = "uvloop-0.18.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e3d301e23984dcbc92d0e42253e0e0571915f0763f1eeaf68631348745f2dccc"},
-    {file = "uvloop-0.18.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:680da98f12a7587f76f6f639a8aa7708936a5d17c5e7db0bf9c9d9cbcb616593"},
-    {file = "uvloop-0.18.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:75baba0bfdd385c886804970ae03f0172e0d51e51ebd191e4df09b929771b71e"},
-    {file = "uvloop-0.18.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:ed3c28337d2fefc0bac5705b9c66b2702dc392f2e9a69badb1d606e7e7f773bb"},
-    {file = "uvloop-0.18.0.tar.gz", hash = "sha256:d5d1135beffe9cd95d0350f19e2716bc38be47d5df296d7cc46e3b7557c0d1ff"},
+    {file = "uvloop-0.19.0-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:da8435a3bd498419ee8c13c34b89b5005130a476bda1d6ca8cfdde3de35cd650"},
+    {file = "uvloop-0.19.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:02506dc23a5d90e04d4f65c7791e65cf44bd91b37f24cfc3ef6cf2aff05dc7ec"},
+    {file = "uvloop-0.19.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2693049be9d36fef81741fddb3f441673ba12a34a704e7b4361efb75cf30befc"},
+    {file = "uvloop-0.19.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7010271303961c6f0fe37731004335401eb9075a12680738731e9c92ddd96ad6"},
+    {file = "uvloop-0.19.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:5daa304d2161d2918fa9a17d5635099a2f78ae5b5960e742b2fcfbb7aefaa593"},
+    {file = "uvloop-0.19.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:7207272c9520203fea9b93843bb775d03e1cf88a80a936ce760f60bb5add92f3"},
+    {file = "uvloop-0.19.0.tar.gz", hash = "sha256:0246f4fd1bf2bf702e06b0d45ee91677ee5c31242f39aab4ea6fe0c51aedd0fd"},
 ]
 
 [[package]]

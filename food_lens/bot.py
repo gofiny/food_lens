@@ -6,8 +6,7 @@ from typing import Annotated, Any, Self
 from aiogram import Bot, Dispatcher, Router
 from aiogram.methods import TelegramMethod
 from fastapi import Depends, FastAPI, Request, Response
-from pydantic import HttpUrl, SecretStr, model_validator
-from pydantic_settings import BaseSettings
+from pydantic import BaseModel, HttpUrl, SecretStr, model_validator
 
 from .utils.decoders import JsonDecoderProtocol, decode_json
 from .utils.logger import LoggerMixin
@@ -20,7 +19,7 @@ class TelegramUpdatedMethod(str, Enum):
     POOLING = "POOLING"
 
 
-class RunnerSettings(BaseSettings):
+class RunnerSettings(BaseModel):
     api_token: SecretStr
     secret_token: SecretStr | None = None
     webhook_url: HttpUrl | None = None
@@ -118,7 +117,7 @@ class BotRunner(LoggerMixin):
         return _handle_request
 
     async def startup(self) -> None:
-        self.logger.info("Bo runner startup")
+        self.logger.info("Bot runner startup")
         self.dp.include_routers(*self._routers)
 
         match self._settings.updating_method:
