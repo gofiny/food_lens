@@ -24,7 +24,7 @@ jobs:
             echo ${{ secrets.GHCR_PAT }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin
             
             echo "Pulling the Docker image"
-            docker pull--rm  ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             
             echo "Deleting old container"
             docker stop ${{ env.IMAGE_NAME }} || true
@@ -32,7 +32,7 @@ jobs:
             
             echo "Starting new container"
             docker run -d --name ${{ env.IMAGE_NAME }} \
-              --network shared-network \
+              --network shared_network \
               --restart on-failure \
               -e API_TOKEN=${{ secrets.API_TOKEN }} \
               -e SECRET_TOKEN=${{ secrets.SECRET_TOKEN }} \
