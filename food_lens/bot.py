@@ -67,10 +67,12 @@ class BotRunner(LoggerMixin):
         self.logger.info("Pooling task created")
 
     async def _set_webhook(self) -> None:
-        await self.bot.set_webhook(
+        resp = await self.bot.set_webhook(
             url=f"{self._settings.webhook_url}{self._settings.webhook_endpoint}",
             secret_token=self._secret_token,
         )
+        if resp is False:
+            raise RuntimeError("Webhook is not set")
 
     async def _init_webhook(self) -> None:
         self._app.add_route(

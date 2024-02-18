@@ -21,7 +21,7 @@ class LogLevel(str, Enum):
 
 class LoggerSettings(BaseModel):
     json_enabled: bool = True
-    level: LogLevel = LogLevel.INFO
+    level: LogLevel = LogLevel.DEBUG
     extra_context: bool = False
     colorize: bool = False
 
