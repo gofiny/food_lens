@@ -27,7 +27,9 @@ jobs:
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             
             echo "Starting new container"
-            docker run --rm -d --name ${{ env.IMAGE_NAME }} --network shared-network \
+            docker run --rm -d --name ${{ env.IMAGE_NAME }} \
+              --network shared-network \
+              --restart on-failure \
               -e API_TOKEN=${{ secrets.API_TOKEN }} \
               -e SECRET_TOKEN=${{ secrets.SECRET_TOKEN }} \
               -e WEBHOOK_URL=${{ secrets.WEBHOOK_URL }} \
