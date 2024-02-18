@@ -67,7 +67,7 @@ class BotRunner(LoggerMixin):
         self.logger.info("Pooling task created")
 
     async def _set_webhook(self) -> None:
-        await asyncio.sleep(10)
+        await asyncio.sleep(0.5)
         self.logger.info("Start setting telegram webhook")
         resp = await self.bot.set_webhook(
             url=f"{self._settings.webhook_url}{self._settings.webhook_endpoint}",
@@ -79,7 +79,7 @@ class BotRunner(LoggerMixin):
 
     async def _init_webhook(self) -> None:
         self._app.add_route(
-            str(self._settings.webhook_endpoint),
+            f"/{self._settings.webhook_endpoint}",
             route=self._build_handle_request_method(),
             methods=["POST"],
             include_in_schema=False,
