@@ -84,6 +84,7 @@ test = [
     "pytest-asyncio>=0.21.1",
     "pytest-cov>=4.1.0",
     "pytest-sugar>=1.0.0",
+    "httpx>=0.26.0",
 ]
 format = [
     "black>=23.9.1",
