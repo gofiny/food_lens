@@ -66,6 +66,10 @@ class BotRunner(LoggerMixin):
         self._task = asyncio.create_task(self.dp.start_polling(self.bot))
         self.logger.info("Pooling task created")
 
+    async def _remove_webhook(self) -> None:
+        await self.bot.delete_webhook()
+        self.logger.info("webhook deleted")
+
     async def _set_webhook(self) -> None:
         await asyncio.sleep(0.5)
         self.logger.info("Start setting telegram webhook")
@@ -124,6 +128,7 @@ class BotRunner(LoggerMixin):
     async def startup(self) -> None:
         self.logger.info("Bot runner startup")
         self.dp.include_routers(*self._routers)
+        await self._remove_webhook()
 
         match self._settings.updating_method:
             case TelegramUpdatedMethod.POOLING:
@@ -141,4 +146,5 @@ class BotRunner(LoggerMixin):
                 await self._task
             except asyncio.CancelledError:
                 self.logger.info("Main bot runner task cancelled")
+
         self.logger.info("Bot runner successfully finish work")
